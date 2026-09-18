@@ -1,0 +1,3 @@
+# Milestone 1
+
+I deployed the container to AWS using a CloudFormation template and the healthy parameter file. The template created a t3.micro EC2 instance running Amazon Linux 2023 and attached a security group to it. The security group allows public TCP traffic on port 8080 so the service can be reached externally, and it also opens port 22 as an SSH fallback. The instance's UserData installs and starts Docker, pulls the public service image, and starts the container with port 8080 mapped from the host to the container. The template also attaches LabInstanceProfile for SSM access and outputs the public service URL and instance ID.
